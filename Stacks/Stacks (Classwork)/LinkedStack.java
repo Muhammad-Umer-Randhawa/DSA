@@ -93,7 +93,13 @@ public class LinkedStack implements ImplementationOfStack {
         }
         return finalResult;
     }
-
+    public void traverse() {
+        Node current = top;
+        while (current != null) {
+            System.out.println(current.data);
+            current = current.next;
+        }
+    }
     public static void main(String[] args) {
         // LinkedStack ls = new LinkedStack();
         // ls.push(1);
@@ -114,5 +120,18 @@ public class LinkedStack implements ImplementationOfStack {
         st.push(4);
 
         System.out.println("Sliced Stack contents: " + st.slice());
+
+        //traverse without a method
+        // LinkedStack temp = new LinkedStack();
+
+        // while (!st.isEmpty()) {
+        //     Object ob = st.pop();
+        //     System.out.println(ob);
+        //     temp.push(ob);
+        // }
+
+        // while (!temp.isEmpty()) {
+        //     st.push(temp.pop());
+        // }
     }
 }

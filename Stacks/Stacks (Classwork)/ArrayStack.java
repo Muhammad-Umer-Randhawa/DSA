@@ -70,4 +70,45 @@ public class ArrayStack implements ImplementationOfStack {
         }
         return result;
     }
+    public void traverse() {
+        for (int i = size - 1; i >= 0; i--) {
+            System.out.println(a[i]);
+        }
+    }
+     public static void main(String[] args) {
+        ArrayStack stack = new ArrayStack(5);
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
+        stack.push(50);
+
+        System.out.println("Size: " + stack.size());
+        System.out.println("Top element: " + stack.peek());
+
+        System.out.println("Popped: " + stack.pop());
+        System.out.println("Popped: " + stack.pop());
+
+        System.out.println("Top element: " + stack.peek());
+        System.out.println("Size: " + stack.size());
+
+        System.out.println("Stack contents: " + stack.toString());
+
+        LinkedStack linkedStack = stack.toLinkedStack();
+        System.out.println("LinkedStack contents: " + linkedStack.toString());
+
+
+        //traverse without a method
+        //ArrayStack temp = new ArrayStack(5);
+
+        // while (!st.isEmpty()) {
+        //     Object ob = st.pop();
+        //     System.out.println(ob);
+        //     temp.push(ob);
+        // }
+
+        // while (!temp.isEmpty()) {
+        //     st.push(temp.pop());
+        // }
+    }
 }

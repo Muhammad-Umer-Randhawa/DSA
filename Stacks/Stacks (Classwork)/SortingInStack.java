@@ -1,10 +1,11 @@
+import java.util.*;
 public class SortingInStack {
     public static void main(String[] args){
         LinkedStack stack1 = new LinkedStack();
         stack1.push(11);
         stack1.push(0);
         stack1.push(1);
-        stack1.push(-111);
+        stack1.push(-111);  
         stack1.push(50);
 
         LinkedStack stack2 = new LinkedStack();
@@ -14,20 +15,37 @@ public class SortingInStack {
             System.out.print(stack2.pop() + " ");
         }
     }
-    public static LinkedStack sortStack(LinkedStack stack1) {
-    LinkedStack stack2 = new LinkedStack();
-    LinkedStack temp = new LinkedStack();
-    while (!stack1.isEmpty()) {
-        Integer value = (Integer) stack1.pop();
-        while (!stack2.isEmpty() &&
-               (Integer) stack2.peek() < value) {
-            temp.push(stack2.pop());
+    public static LinkedStack sortStack(LinkedStack stack1) { // O(n^2)
+        LinkedStack stack2 = new LinkedStack();
+        LinkedStack temp = new LinkedStack();
+        while (!stack1.isEmpty()) {
+            Integer value = (Integer) stack1.pop();
+            while (!stack2.isEmpty() && (Integer) stack2.peek() < value) {
+                temp.push(stack2.pop());
+            }
+            stack2.push(value);
+            while (!temp.isEmpty()) {
+                stack2.push(temp.pop());
+            }
         }
-        stack2.push(value);
-        while (!temp.isEmpty()) {
-            stack2.push(temp.pop());
-        }
+        return stack2;
     }
-    return stack2;
-}
+    public static LinkedStack sortStackBetter(LinkedStack stack1) { // O(n log n) using List and Collections.sort
+        // Step 1: dump everything into a List
+        List<Integer> values = new ArrayList<>();
+        while (!stack1.isEmpty()) {
+            values.add((Integer) stack1.pop());
+        }
+
+        // Step 2: sort the list — O(n log n)
+        Collections.sort(values);
+
+        // Step 3: push back so the SMALLEST ends up on top
+        // (since popping later should give ascending order, like your original output)
+        LinkedStack result = new LinkedStack();
+        for (int v : values) {
+            result.push(v);
+        }
+        return result;
+    }
 }
