@@ -30,18 +30,13 @@ public class SortingInStack {
         }
         return stack2;
     }
-    public static LinkedStack sortStackBetter(LinkedStack stack1) { // O(n log n) using List and Collections.sort
+    public static LinkedStack sortStackBetter(LinkedStack stack1) { // O(n log n)
         // Step 1: dump everything into a List
         List<Integer> values = new ArrayList<>();
         while (!stack1.isEmpty()) {
             values.add((Integer) stack1.pop());
         }
-
-        // Step 2: sort the list — O(n log n)
         Collections.sort(values);
-
-        // Step 3: push back so the SMALLEST ends up on top
-        // (since popping later should give ascending order, like your original output)
         LinkedStack result = new LinkedStack();
         for (int v : values) {
             result.push(v);

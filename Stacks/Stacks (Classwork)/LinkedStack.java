@@ -6,8 +6,9 @@ class Node {
     }
 }
 public class LinkedStack implements ImplementationOfStack {
-    private int size;
-    private Node top;
+    int size;
+    Node top;
+
     public boolean isEmpty() {
         return size == 0;
     }
@@ -33,7 +34,7 @@ public class LinkedStack implements ImplementationOfStack {
         Object ob = top.data;
         top = top.next;
         size--;
-       return ob;
+        return ob;
     }
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -57,7 +58,15 @@ public class LinkedStack implements ImplementationOfStack {
         }
         return as;
     }
-    public boolean equals(LinkedStack st) {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof LinkedStack)) {
+            return false;
+        }
+        LinkedStack st = (LinkedStack) obj;
         if (this.size != st.size) {
             return false;
         }
@@ -119,7 +128,11 @@ public class LinkedStack implements ImplementationOfStack {
         st.push(3);
         st.push(4);
 
-        System.out.println("Sliced Stack contents: " + st.slice());
+        // System.out.println("Sliced Stack contents: " + st.slice());
+
+        LinkedStack st2 = new LinkedStack();
+        st2.push(st.peek());
+        System.out.println(st2);
 
         //traverse without a method
         // LinkedStack temp = new LinkedStack();

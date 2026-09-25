@@ -1,3 +1,4 @@
+
 public class MiddleElement {
     public static void main(String[] args) {
         LinkedStack stack = new LinkedStack();
@@ -16,18 +17,14 @@ public class MiddleElement {
         System.out.println("Middle element: " + getMiddle(stack2));
     }
     public static Object getMiddle(LinkedStack stack) {
-        int mid = (stack.size()+1)/2;
-        LinkedStack temp = new LinkedStack();
-        if(stack.size() == 0) {
+        if (stack.size() == 0) {
             throw new IllegalStateException("Stack is empty");
         }
-        for(int i=0; i<mid-1; i++) {
-            temp.push(stack.pop());
+        int mid = (stack.size() + 1) / 2;
+        Node current = stack.top;
+        for (int i = 1; i < mid; i++) {
+            current = current.next;
         }
-        Object middle = stack.peek();
-        while (!temp.isEmpty()) {
-            stack.push(temp.pop());
-        }
-        return middle;
+        return current.data;
     }
 }

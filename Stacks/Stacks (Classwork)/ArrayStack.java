@@ -17,8 +17,8 @@ public class ArrayStack implements ImplementationOfStack {
         if (size == a.length) {
             resize();
         }
-        a[size] = ob;
         size++;
+        a[size] = ob;
     }
     public int size() {
         return size;
@@ -51,7 +51,15 @@ public class ArrayStack implements ImplementationOfStack {
         }
         return ls;
     }
-    public boolean equals(ArrayStack st) {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof ArrayStack)) {
+            return false;
+        }
+        ArrayStack st = (ArrayStack) obj;
         if (this.size != st.size) {
             return false;
         }
@@ -60,7 +68,7 @@ public class ArrayStack implements ImplementationOfStack {
                 return false;
             }
         }
-        return true;    
+        return true;
     }
     public ArrayStack slice() {
         int half = (size + 1) / 2;
