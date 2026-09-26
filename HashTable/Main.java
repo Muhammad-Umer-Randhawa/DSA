@@ -7,7 +7,7 @@ public class Main{
         Country c4 = new Country("Brazil", "Portuguese", 212000000);
         Country c5 = new Country("Pakistan", "Urdu", 1380000000);
 
-        HashTable ht = new HashTable();
+        NaiveHashTable ht = new NaiveHashTable();
         ht.put("USA", c1);
         ht.put("France", c2);
         ht.put("Japan", c3);
