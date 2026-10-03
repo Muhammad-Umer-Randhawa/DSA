@@ -24,6 +24,7 @@ public class NaiveHashTable implements Map{
       int h = hash(key);
       Object v = entries[h].value;
       entries[h] = null;
+      --size;
       return v;
     }
     public int size(){
