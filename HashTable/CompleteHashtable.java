@@ -1,3 +1,4 @@
+// this one uses open addressing (linear probing) to resolve collisions.
 public class CompleteHashtable implements Map {
     private class Entry{
       Object key;
