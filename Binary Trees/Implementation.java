@@ -21,7 +21,7 @@ public class Implementation{
         display(a);
     }
     public static void display(Node root){
-        if(root == null) return; 
+        if(root == null) return; // this method of display can also be attributed to preorder traversal of a binary tree
         System.out.print(root.val + " ");
         display(root.left);
         display(root.right);
