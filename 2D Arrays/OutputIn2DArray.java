@@ -1,4 +1,4 @@
-import java.util.Scanner;
+// import java.util.Scanner;
 public class OutputIn2DArray {
     public static void main(String[] args){
         int[][] arr = new int[3][4];
