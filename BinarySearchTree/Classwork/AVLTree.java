@@ -70,11 +70,4 @@ public class AVLTree {
         key = left.key;
         left = left.left;
     }
-    public static void main(String[] args){
-        AVLTree t = new AVLTree(1);
-        t.add(2);
-        t.add(67);
-        t.add(-1);
-        System.out.println(t.toString());
-    }
 }
